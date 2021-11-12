@@ -1,0 +1,839 @@
+.wrapper {
+  .header {
+    .header-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      transition: all 0.3s ease;
+      background-color: $cl-white;
+      box-shadow: 0 10px 15px rgb(0 0 0 / 5%);
+      .header-container {
+        padding: 1.5rem;
+        @include flex(flex, space-between, center, nowrap);
+        @include mq_min_1200 {
+          padding: 0 1.5rem;
+        }
+        .header-logo {
+          max-width: 18rem;
+          @include mq_min_768 {
+            max-width: 28rem;
+          }
+        }
+        .header-menu {
+          .menu-main {
+            display: none;
+            @include mq_min_1200 {
+              display: block;
+              @include flex(flex, space-between, center, nowrap);
+              .menu-item {
+                @include font(1.6rem, 700, 1.5);
+                position: relative;
+                padding: 2.8rem 0;
+                margin: 0 2.2rem;
+                cursor: pointer;
+                &::before {
+                  content: "";
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  width: 0;
+                  height: 3px;
+                  transition: all 0.3s ease;
+                  background-color: $cl-green;
+                }
+                .icon-arrow {
+                  @include font(1rem, 700, 1.5);
+                  margin-left: 1rem;
+                }
+                &:hover {
+                  &::before {
+                    width: 100%;
+                    transition: all 0.3s ease;
+                  }
+                  .icon-arrow {
+                    color: $cl_green;
+                  }
+                }
+                .sub-menu {
+                  position: absolute;
+                  width: 24rem;
+                  top: 120px;
+                  left: 0;
+                  padding: 2rem 0;
+                  background-color: $cl-white;
+                  box-shadow: 0 2px 29px rgb(0 0 0 / 5%);
+                  border-bottom: 3px solid $cl-green;
+                  transition: all 0.3s ease-in-out;
+                  visibility: hidden;
+                  opacity: 0;
+                  & > li {
+                    color: $cl-gray;
+                    font-weight: 400;
+                    padding: 0.5rem 3rem;
+                    &:hover {
+                      color: $cl-green;
+                    }
+                  }
+                }
+                &:hover .sub-menu {
+                  transition: all 0.3s ease-in-out;
+                  transition-delay: 0.1s;
+                  top: 80px;
+                  visibility: visible;
+                  opacity: 1;
+                }
+              }
+            }
+          }
+          .icon-menu-mb {
+            font-size: 2.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            @include mq_min_1200 {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    .menu-mb {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 9;
+      width: 80%;
+      height: 100%;
+      transition: all 0.3s ease;
+      @include mq_min_768 {
+        width: 50%;
+      }
+      @include mq_min_1024 {
+        width: 40%;
+      }
+      @include mq_min_1200 {
+        display: none;
+      }
+      .menu-mb-container {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 9;
+        .menu-mb-header {
+          @include flex(flex, space-between, center, nowrap);
+          padding: 2.5rem 1.5rem;
+          background-color: $cl-white;
+          & > img {
+            max-width: 18rem;
+          }
+          .icon-menu-mb-close {
+            font-size: 3rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+          }
+        }
+        .menu-mb-content {
+          height: 100%;
+          padding: 2rem 4rem;
+          @include font(1.6rem, 500, 1.5);
+          color: $cl-white;
+          background-color: $cl-green;
+          .menu-mb-item {
+            padding: 1.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            .icon-arrow {
+              font-size: 1.2rem;
+              transition: all 0.3s ease;
+            }
+          }
+          .sub-menu-mb {
+            padding: 0 1.5rem;
+            & > li {
+              margin-top: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .main {
+    .intro {
+      text-align: center;
+      background-color: $cl-lightblue;
+      .container {
+        @include mq_min_768 {
+          text-align: left;
+        }
+        @include mq_min_1024 {
+          @include flex(flex, space-between, center, nowrap);
+          padding: 8rem 0 1rem;
+        }
+        .intro-content {
+          padding-top: 4rem;
+          @include mq_min_1024 {
+            width: 50%;
+            padding: 0;
+          }
+          h1 {
+            @include font(4rem, 700, 1.2);
+            margin: 9rem 0 3rem;
+          }
+          h5 {
+            @include font(2rem, 700, 1.4);
+            margin-bottom: 3rem;
+            @include mq_min_1024 {
+              font-size: 2.2rem;
+            }
+          }
+          .intro-details {
+            color: $cl-green;
+            @include font(1.5rem, 700, 1.8);
+            margin-bottom: 2rem;
+          }
+        }
+        .intro-img {
+          @include mq_min_1024 {
+            width: 50%;
+          }
+        }
+      }
+    }
+
+    .details-ind {
+      text-align: center;
+      padding: 4rem 0 0.1rem;
+      background-color: $cl-green;
+      .container {
+        @include mq_min_768 {
+          @include flex(flex, space-between, center, nowrap);
+        }
+        .ind-item {
+          margin-bottom: 4rem;
+          .counter {
+            margin-bottom: 2rem;
+            @include font(4.8rem, 700, 1);
+            color: $cl-white;
+          }
+          h6 {
+            @include font(1.6rem, 700, 1.5);
+            color: $cl-lightgray;
+          }
+        }
+      }
+    }
+
+    .list-block {
+      .container {
+        .block-child {
+          margin: 3rem 0;
+          &:nth-child(even) {
+            display: flex;
+            flex-direction: column-reverse;
+            @include mq_min-1024 {
+              flex-direction: row-reverse;
+            }
+          }
+          @include mq_min-1024 {
+            flex-direction: row;
+            @include flex(flex, space-between, center, nowrap);
+          }
+          .block-child-video {
+            position: relative;
+            padding: 1rem 0;
+            img {
+              width: 100%;
+              border-radius: 10px;
+            }
+            @include mq_min-1024 {
+              width: calc(50% - 1rem);
+            }
+            .btn-play {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              font-size: 6rem;
+              color: $cl-white;
+              transform: translate(-50%, -50%);
+              cursor: pointer;
+            }
+          }
+          .block-child-img {
+            padding: 1rem 0;
+            img {
+              width: 100%;
+              border-radius: 10px;
+            }
+            @include mq_min-1024 {
+              width: calc(50% - 1rem);
+            }
+          }
+          .block-child-content {
+            @include mq_min-1024 {
+              width: calc(50% - 1rem);
+            }
+            img {
+              max-width: 18rem;
+            }
+            h4 {
+              @include font(2.4rem, 700, 1.4);
+              margin-bottom: 2rem;
+              @include mq_min-1024 {
+                font-size: 3rem;
+              }
+            }
+            & > p {
+              margin-bottom: 1.6rem;
+              @include font(1.5rem, 400, 1.7);
+              color: $cl-gray;
+              b {
+                font-weight: 700;
+              }
+            }
+            & > ul {
+              @include font(1.5rem, 700, 1.7);
+              color: $cl-green;
+            }
+          }
+        }
+      }
+    }
+
+    .work {
+      background-color: $cl-lightblue;
+      .container {
+        padding: 6rem 1.5rem;
+        .work-title {
+          @include mq_min_768 {
+            @include flex(flex, space-between, center, nowrap);
+          }
+          .work-title-text {
+            h6 {
+              @include font(1.6rem, 700, 1.4);
+              margin-bottom: 2rem;
+            }
+            h4 {
+              @include font(2.4rem, 700, 1.4);
+              span {
+                color: $cl-green;
+              }
+            }
+          }
+          .work-sub-title {
+            .sub-title-number {
+              position: relative;
+              display: inline-block;
+              padding-left: 1rem;
+              @include font(12rem, 700, 1.5);
+              color: #ededed;
+              &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                width: 2.5rem;
+                height: 0.05rem;
+                background-color: $cl-green;
+              }
+              h3 {
+                position: absolute;
+                top: 50%;
+                left: 35%;
+                transform: translate(-50%, -50%);
+                @include font(1.3rem, 700, 1.2);
+                color: $cl-black;
+              }
+            }
+          }
+        }
+        .list-work {
+          @include mq_min_1024 {
+            @include flex(flex, space-between, flex-start, nowrap);
+          }
+          .work-item {
+            position: relative;
+            @include flex(flex, space-between, flex-start, nowrap);
+            @include mq_min_1024 {
+              display: block;
+              padding: 0 1.5rem;
+            }
+            .work-item-circle {
+              position: absolute;
+              z-index: 1;
+              h6 {
+                @include flex(flex, center, center, nowrap);
+                @include font(1.8rem, 700, 1.5);
+                width: 4.8rem;
+                height: 4.8rem;
+                background-color: $cl-white;
+                border-radius: 50%;
+                border: 2px solid #e8e8e8;
+                transition: all 0.6s ease-in-out;
+                cursor: pointer;
+                &:hover {
+                  color: $cl-white;
+                  background-color: $cl-green;
+                }
+              }
+            }
+            .line {
+              position: absolute;
+              top: 0;
+              left: 24px;
+              width: 1px;
+              height: 100%;
+              background-color: #e8e8e8;
+              @include mq_min_1024 {
+                display: none;
+              }
+            }
+
+            .work-item-content {
+              padding: 1rem 0 5rem 7rem;
+              @include mq_min_1024 {
+                padding: 9rem 0 0 0;
+              }
+              h6 {
+                @include font(1.8rem, 700, 1.5);
+                margin-bottom: 1.8rem;
+              }
+              p {
+                @include font(1.5rem, 400, 1.5);
+                color: $cl-gray;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .common {
+      padding: 4rem 0 6rem;
+      .container {
+        @include mq_min_1024 {
+          @include flex(flex, space-between, center, nowrap);
+        }
+        .common-title {
+          @include mq_min_1024 {
+            width: calc((100% / 2) - 1rem);
+          }
+        }
+        .common-content {
+          @include mq_min_1024 {
+            width: calc((100% / 2) - 1rem);
+          }
+          li {
+            margin-bottom: 2rem;
+            box-shadow: 0 18px 40px rgb(51 51 51 / 10%);
+            h5 {
+              @include flex(flex, space-between, center, nowrap);
+              @include font(1.8rem, 700, 1.2);
+              padding: 1.5rem;
+              color: $cl-white;
+              border-radius: 10px;
+              background-color: $cl-orange;
+              cursor: pointer;
+              & > i {
+                @include font(1.2rem, 700, 1.2);
+                transition: all 0.3s ease;
+              }
+            }
+            .dropdown-content {
+              @include font(1.5rem, 400, 1.4);
+              padding: 1.5rem;
+              color: $cl-gray;
+              background-color: $cl-white;
+            }
+          }
+        }
+      }
+    }
+
+    .buy {
+      padding: 6rem 0;
+      text-align: center;
+      .container {
+        .h3-title {
+          margin-bottom: 3rem;
+        }
+        .list-box {
+          @include mq_min_768 {
+            @include flex(flex, space-between, center, wrap);
+          }
+          .box-child {
+            @include mq_min_768 {
+              width: calc((100% / 2) - 1.2rem);
+            }
+            @include mq_min_1024 {
+              width: calc((100% / 4) - 1.5rem);
+            }
+            margin-top: 3rem;
+            padding: 3.6rem 1rem 2.6rem;
+            border: 2px solid #eee;
+            border-radius: 5px;
+            transition: all 0.6s ease;
+            transform: translateY(0);
+            h5 {
+              @include font(2rem, 700, 1.4);
+              margin-bottom: 1.2rem;
+              color: $cl-black;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+            p {
+              @include font(1.5rem, 400, 1.4);
+              color: $cl-gray;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+            &:hover {
+              transform: translateY(-5px);
+            }
+          }
+        }
+      }
+    }
+
+    .screenshots {
+      text-align: center;
+    }
+
+    .pricing {
+      padding: 6rem 0;
+      background-color: $cl-lightblue;
+      text-align: center;
+      .container {
+        .pricing-list {
+          @include mq_min_768 {
+            @include flex(flex, space-between, center, nowrap);
+          }
+          .pricing-item {
+            @include mq_min_768 {
+              width: calc((100% / 3) - 1rem);
+            }
+            position: relative;
+            padding: 5rem 2rem;
+            margin-bottom: 3rem;
+            border-radius: 10px;
+            background-color: $cl-white;
+            box-shadow: 0 0 30px rgb(51 51 51 / 10%);
+            &-title {
+              @include font(1.5rem, 700, 1.4);
+              color: $cl-gray;
+              margin-bottom: 2rem;
+            }
+            .price {
+              @include font(5.6rem, 400, 1.4);
+              color: $cl-black;
+              @include mq_min_768 {
+                font-size: 4.6rem;
+              }
+            }
+            .unit {
+              @include font(1.5rem, 700, 1.4);
+              color: #ababab;
+            }
+            .stamp {
+              position: absolute;
+              top: 0;
+              right: 0;
+              height: 92px;
+              width: 92px;
+              color: $cl-white;
+              background: $cl-orange;
+              overflow: hidden;
+              &::after {
+                content: "";
+                position: absolute;
+                top: 25px;
+                left: -70px;
+                background-color: #ffffff;
+                width: 13.5rem;
+                height: 13.5rem;
+                transform: rotate(45deg);
+              }
+              span {
+                position: absolute;
+                top: 18px;
+                right: 5px;
+                display: inline-block;
+                @include font(1.1rem, 700, 1.1);
+                transform: rotate(45deg);
+              }
+            }
+            .btn-get-started {
+              margin: 2rem 0;
+            }
+            ul {
+              max-width: fit-content;
+              margin: 0 auto;
+              text-align: left;
+              li {
+                @include font(1.5rem, 500, 1.4);
+                color: $cl-gray;
+                padding: 1rem 0;
+
+                i {
+                  @include font(1.2rem, 700, 1.4);
+                  color: $cl-orange;
+                  margin-right: 1rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .contact {
+      padding: 6rem 0;
+      color: $cl-white;
+      background-color: $cl-green;
+      .container {
+        @include mq_min_1024 {
+          @include flex(flex, space-between, center, wrap);
+        }
+        .contact-text {
+          text-align: center;
+          @include mq_min_1024 {
+            width: calc((100% / 2) - 2rem);
+          }
+          h3 {
+            @include font(2.5rem, 700, 1.5);
+            margin-bottom: 1rem;
+          }
+          .list-star {
+            .icon-star {
+              display: inline-block;
+              margin-right: 1.2rem;
+              font-size: 2.5rem;
+              color: #ffc107;
+              &:last-child {
+                margin-right: 0;
+              }
+            }
+          }
+          p {
+            @include font(1.8rem, 500, 1.5);
+            margin-top: 2rem;
+          }
+          .phone-wrap {
+            @include flex(flex, flex-start, center, nowrap);
+            max-width: fit-content;
+            margin: 5rem auto 0;
+            text-align: left;
+            .phone-icon {
+              font-size: 4rem;
+            }
+            .phone-content {
+              margin-left: 2rem;
+              h6 {
+                @include font(1.5rem, 500, 1.5);
+                margin-bottom: 1rem;
+              }
+              span {
+                @include font(2.4rem, 700, 1.5);
+              }
+            }
+          }
+
+          .mail-wrap {
+            @include flex(flex, flex-start, center, nowrap);
+            max-width: fit-content;
+            margin: 5rem auto 0;
+            text-align: left;
+            .mail-icon {
+              font-size: 4rem;
+            }
+            .mail-content {
+              margin-left: 2rem;
+              h6 {
+                @include font(1.5rem, 500, 1.5);
+                margin-bottom: 1rem;
+              }
+              span {
+                @include font(2.4rem, 700, 1.5);
+              }
+            }
+          }
+        }
+
+        .contact-form {
+          margin-top: 5rem;
+          padding: 4.5rem 2rem;
+          border-radius: 10px;
+          color: $cl-gray;
+          text-align: center;
+          background-color: $cl-white;
+          @include mq_min_1024 {
+            width: calc((100% / 2) - 2rem);
+            margin: 0;
+            .container {
+              display: block;
+            }
+          }
+          h3 {
+            @include font(2.5rem, 700, 1.5);
+            margin-bottom: 1rem;
+            color: $cl-black;
+          }
+          p {
+            @include font(1.5rem, 400, 1.5);
+            margin-bottom: 1rem;
+          }
+          .form-main {
+            text-align: left;
+            .form-child {
+              .title-form {
+                @include font(1.3rem, 400, 1.5);
+                margin: 0;
+                span {
+                  color: #ff0000;
+                }
+              }
+              input {
+                width: 100%;
+                padding: 0.8rem 1.5rem;
+                margin-bottom: 1.8rem;
+                outline: none;
+                border: 1px solid #cbd6e2;
+                border-radius: 5px;
+                background-color: $cl-lightblue;
+              }
+              input[name="message"] {
+                padding: 2rem 1.5rem;
+              }
+            }
+            .btn-submit {
+              padding: 1rem 2.4rem;
+              @include font(1.2rem, 700, 1.5);
+              color: $cl-white;
+              border-radius: 5px;
+              background-color: $cl-orange;
+              transform: translateY(0);
+              transition: all 0.6s ease;
+              &:hover {
+                opacity: 0.6;
+                transform: translateY(-5px);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .back-top {
+      position: fixed;
+      bottom: 10rem;
+      right: 3rem;
+      width: 5rem;
+      height: 5rem;
+      @include flex(flex, center, center, wrap);
+      color: $cl-white;
+      border-radius: 50%;
+      background-color: $cl-green;
+      z-index: 8;
+      cursor: pointer;
+      transition: all 0.6s ease;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  .footer {
+    padding: 4rem 0;
+    color: $cl-white;
+    background-color: $cl-black;
+    .container {
+      a {
+        transition: all 0.6s ease;
+        &:hover {
+          color: $cl-green;
+        }
+      }
+      .footer-top {
+        @include mq_min_768 {
+          @include flex(flex, space-between, flex-start, wrap);
+        }
+        .company {
+          @include mq_min_768 {
+            width: calc((100% / 2) - 2rem);
+          }
+          @include mq_min_1024 {
+            width: calc((100% / 3) - 2rem);
+          }
+          margin-bottom: 3rem;
+          .logo-company {
+            margin-bottom: 3rem;
+          }
+          ul {
+            @include font(1.5rem, 500, 1.5);
+            li {
+              margin-bottom: 1rem;
+              &:nth-child(3) {
+                font-weight: 700;
+              }
+            }
+          }
+        }
+        .quick,
+        .resource {
+          @include mq_min_768 {
+            width: calc((100% / 2) - 2rem);
+          }
+          @include mq_min_1024 {
+            width: calc((100% / 3) - 2rem);
+          }
+          margin-bottom: 3rem;
+          h6 {
+            @include font(1.8rem, 700, 1.5);
+            margin-bottom: 2rem;
+          }
+          ul {
+            @include font(1.5rem, 500, 1.5);
+            li {
+              margin-bottom: 0.5rem;
+            }
+          }
+        }
+      }
+
+      .footer-bottom {
+        @include mq_min_768 {
+          @include flex(flex, space-between, center, wrap);
+        }
+        text-align: center;
+        .copyright {
+          @include font(1.5rem, 500, 1.5);
+        }
+        .social-network {
+          @include flex(flex, center, center, nowrap);
+          .icon-facebook,
+          .icon-in {
+            @include flex(flex, center, center, nowrap);
+            @include font(1.8rem, 500, 1.5);
+            width: 4.8rem;
+            height: 4.8rem;
+            margin: 2rem 1rem;
+            border-radius: 50%;
+            border: 1px solid #e0e0e0;
+            transition: all 0.6s ease;
+            cursor: pointer;
+            &:hover {
+              color: $cl-white;
+              background-color: $cl-green;
+            }
+          }
+        }
+      }
+    }
+  }
+}
