@@ -23,7 +23,6 @@ var RUN = {
     });
     // Show
     $(".icon-menu-mb").click(function (e) {
-      console.log("huhu");
       e.preventDefault();
       $(".menu-mb").animate({
         opacity: 1,
