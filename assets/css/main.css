@@ -1150,7 +1150,7 @@ select {
 .wrapper .main .back-top {
   position: fixed;
   bottom: 10rem;
-  right: 3rem;
+  right: 2rem;
   width: 5rem;
   height: 5rem;
   display: flex;
