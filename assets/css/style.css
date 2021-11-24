@@ -632,6 +632,7 @@ select {
 }
 .wrapper .main .work {
   background-color: #f6fafe;
+  overflow: hidden;
 }
 .wrapper .main .work .container {
   padding: 6rem 1.5rem;
@@ -880,6 +881,7 @@ select {
   padding: 6rem 0;
   background-color: #f6fafe;
   text-align: center;
+  overflow: hidden;
 }
 @media screen and (min-width: 768px) {
   .wrapper .main .pricing .container .pricing-list {

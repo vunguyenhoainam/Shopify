@@ -305,6 +305,7 @@
 
     .work {
       background-color: $cl-lightblue;
+      overflow: hidden;
       .container {
         padding: 6rem 1.5rem;
         .work-title {
@@ -509,6 +510,7 @@
       padding: 6rem 0;
       background-color: $cl-lightblue;
       text-align: center;
+      overflow: hidden;
       .container {
         .pricing-list {
           @include mq_min_768 {
