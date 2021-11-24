@@ -95,6 +95,20 @@ var RUN = {
       e.preventDefault();
       $("html").animate({ scrollTop: 0 }, 1200, "easeOutCubic");
     });
+
+    document.onscroll = () => {
+      var location = window.scrollY;
+      if (location < 200) {
+        $(".back-top").css({ opacity: 0, visibility: "hidden" });
+      } else {
+        $(".back-top").css({ opacity: 1, visibility: "visible" });
+      }
+    };
+  },
+
+  // WowJS
+  wowJS: function () {
+    new WOW().init();
   },
 
   init: function () {
@@ -103,6 +117,7 @@ var RUN = {
     RUN.dropDown();
     RUN.dropDownMenu();
     RUN.slide();
+    RUN.wowJS();
     RUN.backTop();
   },
 };
