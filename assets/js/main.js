@@ -1,4 +1,7 @@
-console.log("Shopify ^^");
+console.log(
+  "%c Shopify...",
+  "color: #ff0000; font-size: 16px; font-weight: 700"
+);
 
 var RUN = {
   // Handle-Header
@@ -54,6 +57,7 @@ var RUN = {
   // Handle-Dropdown
   dropDown: function () {
     $(".dropdown-content").slideUp();
+    $(".common-content li:first-child .dropdown-content").slideDown();
     $(".dropdown-title").click(function (e) {
       e.preventDefault();
       $(this).next(".dropdown-content").slideToggle();
@@ -89,16 +93,44 @@ var RUN = {
     });
   },
 
+  //Handle-Counter
+  counter: function () {
+    const project = document.querySelector(".project");
+    const experience = document.querySelector(".experience");
+    const clients = document.querySelector(".clients");
+    const recognition = document.querySelector(".recognition");
+
+    function counterUp(el, to) {
+      let speed = 200;
+      let from = 0;
+      let step = to / speed;
+      const counter = setInterval(function () {
+        from += step;
+        if (from > to) {
+          clearInterval(counter);
+          el.innerText = to;
+        } else {
+          el.innerText = Math.ceil(from);
+        }
+      }, 1);
+    }
+
+    counterUp(project, 500);
+    counterUp(experience, 10);
+    counterUp(clients, 280);
+    counterUp(recognition, 3200);
+  },
+
   // Handle-Backtop
   backTop: function () {
     $(".back-top").click(function (e) {
       e.preventDefault();
-      $("html").animate({ scrollTop: 0 }, 1200, "easeOutCubic");
+      $("html").animate({ scrollTop: 0 }, 1500);
     });
 
     document.onscroll = () => {
       var location = window.scrollY;
-      if (location < 200) {
+      if (location < 300) {
         $(".back-top").css({ opacity: 0, visibility: "hidden" });
       } else {
         $(".back-top").css({ opacity: 1, visibility: "visible" });
@@ -106,9 +138,11 @@ var RUN = {
     };
   },
 
-  // WowJS
-  wowJS: function () {
-    new WOW().init();
+  // AOS
+  aos: function () {
+    AOS.init({
+      disable: window.innerWidth < 1024,
+    });
   },
 
   init: function () {
@@ -117,8 +151,9 @@ var RUN = {
     RUN.dropDown();
     RUN.dropDownMenu();
     RUN.slide();
-    RUN.wowJS();
+    RUN.counter();
     RUN.backTop();
+    RUN.aos();
   },
 };
 

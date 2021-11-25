@@ -145,9 +145,12 @@
           .menu-mb-item {
             padding: 1.8rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-            .icon-arrow {
-              font-size: 1.2rem;
-              transition: all 0.3s ease;
+            a {
+              @include flex(flex, space-between, center, nowrap);
+              .icon-arrow {
+                font-size: 1.2rem;
+                transition: all 0.3s ease;
+              }
             }
           }
           .sub-menu-mb {
@@ -305,7 +308,6 @@
 
     .work {
       background-color: $cl-lightblue;
-      overflow: hidden;
       .container {
         padding: 6rem 1.5rem;
         .work-title {
@@ -510,7 +512,6 @@
       padding: 6rem 0;
       background-color: $cl-lightblue;
       text-align: center;
-      overflow: hidden;
       .container {
         .pricing-list {
           @include mq_min_768 {
