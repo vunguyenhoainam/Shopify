@@ -461,6 +461,9 @@ select {
 .wrapper .header .menu-mb .menu-mb-container .menu-mb-content .sub-menu-mb > li {
   margin-top: 1rem;
 }
+.wrapper .main {
+  overflow: hidden;
+}
 .wrapper .main .intro {
   text-align: center;
   background-color: #f6fafe;
@@ -795,6 +798,8 @@ select {
 .wrapper .main .common .container .common-content li {
   margin-bottom: 2rem;
   box-shadow: 0 18px 40px rgba(51, 51, 51, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
 }
 .wrapper .main .common .container .common-content li h5 {
   display: flex;
@@ -845,7 +850,6 @@ select {
   border: 2px solid #eee;
   border-radius: 5px;
   transition: all 0.6s ease;
-  transform: translateY(0);
 }
 @media screen and (min-width: 768px) {
   .wrapper .main .buy .container .list-box .box-child {
@@ -896,6 +900,7 @@ select {
   }
 }
 .wrapper .main .pricing .container .pricing-list .pricing-item {
+  overflow: hidden;
   position: relative;
   padding: 5rem 2rem;
   margin-bottom: 3rem;

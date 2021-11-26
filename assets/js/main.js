@@ -1,23 +1,4 @@
-console.log(
-  "%c Shopify...",
-  "color: #ff0000; font-size: 16px; font-weight: 700"
-);
-
 var RUN = {
-  // Handle-Header
-  fixHeader: function () {
-    document.onscroll = () => {
-      var location = window.scrollY;
-      if (location > 200) {
-        document.querySelector(".header-wrapper").classList.add("fix-header");
-      } else {
-        document
-          .querySelector(".header-wrapper")
-          .classList.remove("fix-header");
-      }
-    };
-  },
-
   // Handle-Menu mobile
   menuMobile: function () {
     $(".menu-mb").animate({
@@ -119,6 +100,17 @@ var RUN = {
     counterUp(experience, 10);
     counterUp(clients, 280);
     counterUp(recognition, 3200);
+
+    // document.onscroll = () => {
+    //   var location = window.scrollY;
+    //   console.log(location, $(".details-ind").offset().top);
+    //   if (location > 300) {
+    //     counterUp(project, 500);
+    //     counterUp(experience, 10);
+    //     counterUp(clients, 280);
+    //     counterUp(recognition, 3200);
+    //   }
+    // };
   },
 
   // Handle-Backtop
@@ -127,15 +119,6 @@ var RUN = {
       e.preventDefault();
       $("html").animate({ scrollTop: 0 }, 1500);
     });
-
-    document.onscroll = () => {
-      var location = window.scrollY;
-      if (location < 300) {
-        $(".back-top").css({ opacity: 0, visibility: "hidden" });
-      } else {
-        $(".back-top").css({ opacity: 1, visibility: "visible" });
-      }
-    };
   },
 
   // AOS
@@ -145,20 +128,48 @@ var RUN = {
     });
   },
 
+  // Scroll
+  handleScroll: function () {
+    document.onscroll = function () {
+      var location = window.scrollY;
+
+      // Backtop
+      if (location < 300) {
+        $(".back-top").css({ opacity: 0, visibility: "hidden" });
+      } else {
+        $(".back-top").css({ opacity: 1, visibility: "visible" });
+      }
+
+      // Fix-Header
+      if (location > 200) {
+        document.querySelector(".header-wrapper").classList.add("fix-header");
+      } else {
+        document
+          .querySelector(".header-wrapper")
+          .classList.remove("fix-header");
+      }
+    };
+  },
+
+  // Initial
   init: function () {
-    RUN.fixHeader();
     RUN.menuMobile();
-    RUN.dropDown();
     RUN.dropDownMenu();
+    RUN.dropDown();
     RUN.slide();
-    RUN.counter();
     RUN.backTop();
+    RUN.counter();
     RUN.aos();
+    RUN.handleScroll();
   },
 };
 
 $(document).ready(function () {
   setTimeout(function () {
     RUN.init();
+    console.log(
+      "%c Shopify...",
+      "color: #ff0000; font-size: 16px; font-weight: 700"
+    );
   }, 100);
 });

@@ -165,6 +165,7 @@
   }
 
   .main {
+    overflow: hidden;
     .intro {
       text-align: center;
       background-color: $cl-lightblue;
@@ -433,6 +434,8 @@
           li {
             margin-bottom: 2rem;
             box-shadow: 0 18px 40px rgb(51 51 51 / 10%);
+            border-radius: 10px;
+            overflow: hidden;
             h5 {
               @include flex(flex, space-between, center, nowrap);
               @include font(1.8rem, 700, 1.2);
@@ -480,7 +483,6 @@
             border: 2px solid #eee;
             border-radius: 5px;
             transition: all 0.6s ease;
-            transform: translateY(0);
             h5 {
               @include font(2rem, 700, 1.4);
               margin-bottom: 1.2rem;
@@ -518,6 +520,7 @@
             @include flex(flex, space-between, center, nowrap);
           }
           .pricing-item {
+            overflow: hidden;
             @include mq_min_768 {
               width: calc((100% / 3) - 1rem);
             }
