@@ -1,9 +1,9 @@
 @mixin font($size, $weight, $lineHeight) {
-    font-size: $size;
-    font-weight: $weight;
-    line-height: $lineHeight;
-  }
-  
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineHeight;
+}
+
 @mixin flex($display, $justify, $align, $wrap) {
   display: $display;
   justify-content: $justify;
@@ -34,4 +34,3 @@
     @content;
   }
 }
-  

@@ -1,20 +1,21 @@
 var RUN = {
+  // Loader
+  loader: function () {
+    window.onload = function (e) {
+      e.preventDefault();
+      $(".loader").delay(1000).fadeOut();
+    };
+  },
+
   // Handle-Menu mobile
   menuMobile: function () {
-    $(".menu-mb").animate({
-      opacity: 0,
-      marginRight: -999,
-    });
-    // Show
+    // Show-Menu
     $(".icon-menu-mb").click(function (e) {
       e.preventDefault();
-      $(".menu-mb").animate({
-        opacity: 1,
-        marginRight: 0,
-      });
+      $(".menu-mb").css({ opacity: 1, "margin-right": "0px" });
       $(".effect-page").addClass("effect-page-appear");
     });
-    // Hidden
+    // Hidden-Menu
     $(".icon-menu-mb-close").click(function (e) {
       e.preventDefault();
       $(".menu-mb").animate({
@@ -24,7 +25,7 @@ var RUN = {
       $(this).toggleClass("handle-arrow");
       $(".effect-page").removeClass("effect-page-appear");
     });
-    // Hidden
+    // Hidden-Effect
     $(".effect-page").click(function (e) {
       e.preventDefault();
       $(".menu-mb").animate({
@@ -153,6 +154,7 @@ var RUN = {
 
   // Initial
   init: function () {
+    RUN.loader();
     RUN.menuMobile();
     RUN.dropDownMenu();
     RUN.dropDown();
