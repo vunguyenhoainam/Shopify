@@ -1,11 +1,11 @@
 var RUN = {
   // Loader
-  loader: function () {
-    window.onload = function (e) {
-      e.preventDefault();
-      $(".loader").delay(1000).fadeOut();
-    };
-  },
+  // loader: function () {
+  //   window.onload = function (e) {
+  //     e.preventDefault();
+  //     $(".loader").delay(1000).fadeOut();
+  //   };
+  // },
 
   // Handle-Menu mobile
   menuMobile: function () {
@@ -154,7 +154,7 @@ var RUN = {
 
   // Initial
   init: function () {
-    RUN.loader();
+    // RUN.loader();
     RUN.menuMobile();
     RUN.dropDownMenu();
     RUN.dropDown();
