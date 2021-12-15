@@ -76,10 +76,22 @@ select {
   transform: rotate(-90deg);
 }
 
+.dropdown-active {
+  color: $cl-white;
+  background-color: $cl-orange;
+  transition: all 0.3s ease;
+}
+
 .h3-title {
   @include font(2.5rem, 700, 1.4);
   @include mq_min_768 {
     font-size: 2.8rem;
+  }
+  @include mq_min_1024 {
+    font-size: 3.2rem;
+  }
+  @include mq_min_1200 {
+    font-size: 4rem;
   }
   margin-bottom: 4rem;
   span {

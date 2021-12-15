@@ -2,11 +2,11 @@ var RUN = {
   // Loader
   // loader: function () {
   //   window.onload = function (e) {
+  //     // console.log("aaaa");
   //     e.preventDefault();
   //     $(".loader").delay(1000).fadeOut();
   //   };
   // },
-
   // Handle-Menu mobile
   menuMobile: function () {
     // Show-Menu
@@ -40,10 +40,27 @@ var RUN = {
   dropDown: function () {
     $(".dropdown-content").slideUp();
     $(".common-content li:first-child .dropdown-content").slideDown();
+    $(".common-content li:first-child .dropdown-title").addClass(
+      "dropdown-active"
+    );
+    $(".common-content li:first-child .dropdown-title .icon-arrow").addClass(
+      "handle-arrow"
+    );
     $(".dropdown-title").click(function (e) {
       e.preventDefault();
-      $(this).next(".dropdown-content").slideToggle();
-      $(this).children(".icon-arrow").toggleClass("handle-arrow");
+      if ($(this).hasClass("dropdown-active")) {
+        $(this).toggleClass("dropdown-active");
+        $(this).next(".dropdown-content").slideToggle();
+        $(this).children(".icon-arrow").toggleClass("handle-arrow");
+      } else {
+        $(".dropdown-title").removeClass("dropdown-active");
+        $(".icon-arrow").removeClass("handle-arrow");
+        $(".dropdown-content").slideUp();
+
+        $(this).addClass("dropdown-active");
+        $(this).next(".dropdown-content").slideDown();
+        $(this).children(".icon-arrow").addClass("handle-arrow");
+      }
     });
   },
 
@@ -69,7 +86,7 @@ var RUN = {
           items: 1,
         },
         1024: {
-          items: 2,
+          items: 1,
         },
       },
     });
@@ -152,6 +169,13 @@ var RUN = {
     };
   },
 
+  // Video
+  handleVideo: function () {
+    $("[data-fancybox]").fancybox({
+      buttons: ["share", "fullScreen", "close"],
+    });
+  },
+
   // Initial
   init: function () {
     // RUN.loader();
@@ -159,8 +183,9 @@ var RUN = {
     RUN.dropDownMenu();
     RUN.dropDown();
     RUN.slide();
+    RUN.handleVideo();
     RUN.backTop();
-    RUN.counter();
+    // RUN.counter();
     RUN.aos();
     RUN.handleScroll();
   },

@@ -171,7 +171,8 @@
                   & > li {
                     color: $cl-gray;
                     font-weight: 400;
-                    padding: 0.5rem 3rem;
+                    padding: 0.5rem 2rem;
+                    font-size: 1.5rem;
                     &:hover {
                       color: $cl-green;
                     }
@@ -276,22 +277,34 @@
           text-align: left;
         }
         @include mq_min_1024 {
-          @include flex(flex, space-between, center, nowrap);
+          @include flex(flex, space-between, flex-start, nowrap);
           padding: 8rem 0 1rem;
         }
         .intro-content {
           padding-top: 4rem;
           @include mq_min_1024 {
             width: 50%;
-            padding: 0;
+            padding: 0 2.5rem;
           }
           h1 {
             @include font(4rem, 700, 1.2);
             margin: 9rem 0 3rem;
+            @include mq_min_768 {
+              font-size: 3rem;
+            }
+            @include mq_min_1024 {
+              font-size: 4rem;
+            }
+            @include mq_min_1200 {
+              font-size: 5rem;
+            }
           }
           h5 {
             @include font(2rem, 700, 1.4);
             margin-bottom: 3rem;
+            @include mq_min_768 {
+              font-size: 2.4rem;
+            }
             @include mq_min_1024 {
               font-size: 2.2rem;
             }
@@ -319,6 +332,9 @@
           @include flex(flex, space-between, center, nowrap);
         }
         .ind-item {
+          @include mq_min_768 {
+            width: calc((100% / 4));
+          }
           margin-bottom: 4rem;
           .counter {
             margin-bottom: 2rem;
@@ -337,6 +353,9 @@
       .container {
         .block-child {
           margin: 3rem 0;
+          &:first-child {
+            margin-top: 6rem;
+          }
           &:nth-child(even) {
             display: flex;
             flex-direction: column-reverse;
@@ -346,11 +365,15 @@
           }
           @include mq_min-1024 {
             flex-direction: row;
-            @include flex(flex, space-between, center, nowrap);
+            @include flex(flex, space-between, flex-start, nowrap);
+          }
+          @include mq_min-1200 {
+            align-items: center;
           }
           .block-child-video {
             position: relative;
             padding: 1rem 0;
+            cursor: pointer;
             img {
               width: 100%;
               border-radius: 10px;
@@ -366,6 +389,12 @@
               color: $cl-white;
               transform: translate(-50%, -50%);
               cursor: pointer;
+              i {
+                transition: all 0.3s ease;
+              }
+            }
+            &:hover i {
+              font-size: 65px;
             }
           }
           .block-child-img {
@@ -384,6 +413,15 @@
             }
             img {
               max-width: 18rem;
+              @include mq_min_768 {
+                max-width: 33rem;
+              }
+              @include mq_min_1024 {
+                max-width: 23rem;
+              }
+              @include mq_min_1200 {
+                max-width: 28rem;
+              }
             }
             h4 {
               @include font(2.4rem, 700, 1.4);
@@ -419,13 +457,22 @@
           }
           .work-title-text {
             h6 {
-              @include font(1.6rem, 700, 1.4);
+              @include font(1.4rem, 700, 1.4);
               margin-bottom: 2rem;
             }
             h4 {
               @include font(2.4rem, 700, 1.4);
               span {
                 color: $cl-green;
+              }
+              @include mq_min_768 {
+                font-size: 2.8rem;
+              }
+              @include mq_min_1024 {
+                font-size: 3rem;
+              }
+              @include mq_min_1200 {
+                font-size: 3.4rem;
               }
             }
           }
@@ -462,11 +509,29 @@
             @include flex(flex, space-between, flex-start, nowrap);
           }
           .work-item {
+            width: 100%;
             position: relative;
+            &:hover .circle {
+              background-color: $cl-green;
+              border: 1px solid #ababab;
+            }
+            &:hover .title-number {
+              // transition: all 0.3s ease;
+              color: $cl-white;
+              background-color: $cl-green;
+            }
             @include flex(flex, space-between, flex-start, nowrap);
             @include mq_min_1024 {
               display: block;
               padding: 0 1.5rem;
+              &:not(:last-child)::after {
+                position: absolute;
+                top: 24px;
+                content: "";
+                height: 1px;
+                width: 100%;
+                background-color: #e8e8e8;
+              }
             }
             .work-item-circle {
               position: absolute;
@@ -479,12 +544,30 @@
                 background-color: $cl-white;
                 border-radius: 50%;
                 border: 2px solid #e8e8e8;
-                transition: all 0.6s ease-in-out;
+                transition: all 0.6s ease;
                 cursor: pointer;
-                &:hover {
-                  color: $cl-white;
-                  background-color: $cl-green;
+              }
+              @keyframes scaleIn {
+                from {
+                  transform: scale(0.5, 0.5);
+                  opacity: 0.1;
                 }
+                to {
+                  transform: scale(2.5, 2.5);
+                  opacity: 0;
+                }
+              }
+              .circle {
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-radius: 50%;
+                width: 48px;
+                height: 48px;
+                opacity: 0;
+                z-index: -1;
+                animation: scaleIn 4s infinite
+                  cubic-bezier(0.36, 0.11, 0.89, 0.32);
               }
             }
             .line {
@@ -498,7 +581,6 @@
                 display: none;
               }
             }
-
             .work-item-content {
               padding: 1rem 0 5rem 7rem;
               @include mq_min_1024 {
@@ -535,16 +617,15 @@
           }
           li {
             margin-bottom: 2rem;
-            box-shadow: 0 18px 40px rgb(51 51 51 / 10%);
-            border-radius: 10px;
+            box-shadow: 0 10px 40px rgb(51 51 51 / 10%);
+            border-radius: 5px;
             overflow: hidden;
             h5 {
               @include flex(flex, space-between, center, nowrap);
               @include font(1.8rem, 700, 1.2);
-              padding: 1.5rem;
-              color: $cl-white;
-              border-radius: 10px;
-              background-color: $cl-orange;
+              padding: 2rem 3rem;
+              border-radius: 5px;
+              transition: all 0.3s ease;
               cursor: pointer;
               & > i {
                 @include font(1.2rem, 700, 1.2);
@@ -610,6 +691,23 @@
 
     .screenshots {
       text-align: center;
+      .h3-title {
+        margin: 5rem 0 2rem 0;
+        @include mq_min_768 {
+          margin: 8rem 0 4rem 0;
+        }
+        @include mq_min_1024 {
+          margin: 10rem 0 6rem 0;
+        }
+      }
+      .owl-dots {
+        padding-bottom: 6rem;
+        .owl-dot span {
+          width: 8px;
+          height: 8px;
+          margin: 5px 8px;
+        }
+      }
     }
 
     .pricing {
@@ -627,7 +725,7 @@
               width: calc((100% / 3) - 1rem);
             }
             position: relative;
-            padding: 5rem 2rem;
+            padding: 5rem 3rem;
             margin-bottom: 3rem;
             border-radius: 10px;
             background-color: $cl-white;
@@ -638,10 +736,10 @@
               margin-bottom: 2rem;
             }
             .price {
-              @include font(5.6rem, 400, 1.4);
+              @include font(3.6rem, 400, 1.4);
               color: $cl-black;
-              @include mq_min_768 {
-                font-size: 4.6rem;
+              @include mq_min_1200 {
+                font-size: 5.6rem;
               }
             }
             .unit {
@@ -684,6 +782,8 @@
               margin: 0 auto;
               text-align: left;
               li {
+                // display: flex;
+                @include flex(flex, flex-start, flex-start, nowrap);
                 @include font(1.5rem, 500, 1.4);
                 color: $cl-gray;
                 padding: 1rem 0;
@@ -693,6 +793,12 @@
                   color: $cl-orange;
                   margin-right: 1rem;
                 }
+              }
+            }
+            &:nth-child(2) {
+              .btn-get-started {
+                color: $cl-white;
+                background-color: $cl-green;
               }
             }
           }

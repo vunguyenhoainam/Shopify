@@ -201,6 +201,12 @@ select {
   transform: rotate(-90deg);
 }
 
+.dropdown-active {
+  color: #ffffff;
+  background-color: #ff7a59;
+  transition: all 0.3s ease;
+}
+
 .h3-title {
   font-size: 2.5rem;
   font-weight: 700;
@@ -210,6 +216,16 @@ select {
 @media screen and (min-width: 768px) {
   .h3-title {
     font-size: 2.8rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .h3-title {
+    font-size: 3.2rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .h3-title {
+    font-size: 4rem;
   }
 }
 .h3-title span {
@@ -538,7 +554,8 @@ select {
   .wrapper .header .header-wrapper .header-container .header-menu .menu-main .menu-item .sub-menu > li {
     color: #696969;
     font-weight: 400;
-    padding: 0.5rem 3rem;
+    padding: 0.5rem 2rem;
+    font-size: 1.5rem;
   }
   .wrapper .header .header-wrapper .header-container .header-menu .menu-main .menu-item .sub-menu > li:hover {
     color: #008060;
@@ -657,7 +674,7 @@ select {
   .wrapper .main .intro .container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: nowrap;
     padding: 8rem 0 1rem;
   }
@@ -668,7 +685,7 @@ select {
 @media screen and (min-width: 1024px) {
   .wrapper .main .intro .container .intro-content {
     width: 50%;
-    padding: 0;
+    padding: 0 2.5rem;
   }
 }
 .wrapper .main .intro .container .intro-content h1 {
@@ -677,11 +694,31 @@ select {
   line-height: 1.2;
   margin: 9rem 0 3rem;
 }
+@media screen and (min-width: 768px) {
+  .wrapper .main .intro .container .intro-content h1 {
+    font-size: 3rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .wrapper .main .intro .container .intro-content h1 {
+    font-size: 4rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .wrapper .main .intro .container .intro-content h1 {
+    font-size: 5rem;
+  }
+}
 .wrapper .main .intro .container .intro-content h5 {
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.4;
   margin-bottom: 3rem;
+}
+@media screen and (min-width: 768px) {
+  .wrapper .main .intro .container .intro-content h5 {
+    font-size: 2.4rem;
+  }
 }
 @media screen and (min-width: 1024px) {
   .wrapper .main .intro .container .intro-content h5 {
@@ -716,6 +753,11 @@ select {
 .wrapper .main .details-ind .container .ind-item {
   margin-bottom: 4rem;
 }
+@media screen and (min-width: 768px) {
+  .wrapper .main .details-ind .container .ind-item {
+    width: calc((100% / 4));
+  }
+}
 .wrapper .main .details-ind .container .ind-item .counter {
   margin-bottom: 2rem;
   font-size: 4.8rem;
@@ -732,6 +774,9 @@ select {
 .wrapper .main .list-block .container .block-child {
   margin: 3rem 0;
 }
+.wrapper .main .list-block .container .block-child:first-child {
+  margin-top: 6rem;
+}
 .wrapper .main .list-block .container .block-child:nth-child(even) {
   display: flex;
   flex-direction: column-reverse;
@@ -746,13 +791,19 @@ select {
     flex-direction: row;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: nowrap;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .wrapper .main .list-block .container .block-child {
+    align-items: center;
   }
 }
 .wrapper .main .list-block .container .block-child .block-child-video {
   position: relative;
   padding: 1rem 0;
+  cursor: pointer;
 }
 .wrapper .main .list-block .container .block-child .block-child-video img {
   width: 100%;
@@ -771,6 +822,12 @@ select {
   color: #ffffff;
   transform: translate(-50%, -50%);
   cursor: pointer;
+}
+.wrapper .main .list-block .container .block-child .block-child-video .btn-play i {
+  transition: all 0.3s ease;
+}
+.wrapper .main .list-block .container .block-child .block-child-video:hover i {
+  font-size: 65px;
 }
 .wrapper .main .list-block .container .block-child .block-child-img {
   padding: 1rem 0;
@@ -791,6 +848,21 @@ select {
 }
 .wrapper .main .list-block .container .block-child .block-child-content img {
   max-width: 18rem;
+}
+@media screen and (min-width: 768px) {
+  .wrapper .main .list-block .container .block-child .block-child-content img {
+    max-width: 33rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .wrapper .main .list-block .container .block-child .block-child-content img {
+    max-width: 23rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .wrapper .main .list-block .container .block-child .block-child-content img {
+    max-width: 28rem;
+  }
 }
 .wrapper .main .list-block .container .block-child .block-child-content h4 {
   font-size: 2.4rem;
@@ -834,7 +906,7 @@ select {
   }
 }
 .wrapper .main .work .container .work-title .work-title-text h6 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 700;
   line-height: 1.4;
   margin-bottom: 2rem;
@@ -846,6 +918,21 @@ select {
 }
 .wrapper .main .work .container .work-title .work-title-text h4 span {
   color: #008060;
+}
+@media screen and (min-width: 768px) {
+  .wrapper .main .work .container .work-title .work-title-text h4 {
+    font-size: 2.8rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .wrapper .main .work .container .work-title .work-title-text h4 {
+    font-size: 3rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .wrapper .main .work .container .work-title .work-title-text h4 {
+    font-size: 3.4rem;
+  }
 }
 .wrapper .main .work .container .work-title .work-sub-title .sub-title-number {
   position: relative;
@@ -885,16 +972,33 @@ select {
   }
 }
 .wrapper .main .work .container .list-work .work-item {
+  width: 100%;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: nowrap;
 }
+.wrapper .main .work .container .list-work .work-item:hover .circle {
+  background-color: #008060;
+  border: 1px solid #ababab;
+}
+.wrapper .main .work .container .list-work .work-item:hover .title-number {
+  color: #ffffff;
+  background-color: #008060;
+}
 @media screen and (min-width: 1024px) {
   .wrapper .main .work .container .list-work .work-item {
     display: block;
     padding: 0 1.5rem;
+  }
+  .wrapper .main .work .container .list-work .work-item:not(:last-child)::after {
+    position: absolute;
+    top: 24px;
+    content: "";
+    height: 1px;
+    width: 100%;
+    background-color: #e8e8e8;
   }
 }
 .wrapper .main .work .container .list-work .work-item .work-item-circle {
@@ -914,12 +1018,29 @@ select {
   background-color: #ffffff;
   border-radius: 50%;
   border: 2px solid #e8e8e8;
-  transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease;
   cursor: pointer;
 }
-.wrapper .main .work .container .list-work .work-item .work-item-circle h6:hover {
-  color: #ffffff;
-  background-color: #008060;
+@keyframes scaleIn {
+  from {
+    transform: scale(0.5, 0.5);
+    opacity: 0.1;
+  }
+  to {
+    transform: scale(2.5, 2.5);
+    opacity: 0;
+  }
+}
+.wrapper .main .work .container .list-work .work-item .work-item-circle .circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  opacity: 0;
+  z-index: -1;
+  animation: scaleIn 4s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
 }
 .wrapper .main .work .container .list-work .work-item .line {
   position: absolute;
@@ -977,8 +1098,8 @@ select {
 }
 .wrapper .main .common .container .common-content li {
   margin-bottom: 2rem;
-  box-shadow: 0 18px 40px rgba(51, 51, 51, 0.1);
-  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(51, 51, 51, 0.1);
+  border-radius: 5px;
   overflow: hidden;
 }
 .wrapper .main .common .container .common-content li h5 {
@@ -989,10 +1110,9 @@ select {
   font-size: 1.8rem;
   font-weight: 700;
   line-height: 1.2;
-  padding: 1.5rem;
-  color: #ffffff;
-  border-radius: 10px;
-  background-color: #ff7a59;
+  padding: 2rem 3rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 .wrapper .main .common .container .common-content li h5 > i {
@@ -1066,6 +1186,27 @@ select {
 .wrapper .main .screenshots {
   text-align: center;
 }
+.wrapper .main .screenshots .h3-title {
+  margin: 5rem 0 2rem 0;
+}
+@media screen and (min-width: 768px) {
+  .wrapper .main .screenshots .h3-title {
+    margin: 8rem 0 4rem 0;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .wrapper .main .screenshots .h3-title {
+    margin: 10rem 0 6rem 0;
+  }
+}
+.wrapper .main .screenshots .owl-dots {
+  padding-bottom: 6rem;
+}
+.wrapper .main .screenshots .owl-dots .owl-dot span {
+  width: 8px;
+  height: 8px;
+  margin: 5px 8px;
+}
 .wrapper .main .pricing {
   padding: 6rem 0;
   background-color: #f6fafe;
@@ -1082,7 +1223,7 @@ select {
 .wrapper .main .pricing .container .pricing-list .pricing-item {
   overflow: hidden;
   position: relative;
-  padding: 5rem 2rem;
+  padding: 5rem 3rem;
   margin-bottom: 3rem;
   border-radius: 10px;
   background-color: #ffffff;
@@ -1101,14 +1242,14 @@ select {
   margin-bottom: 2rem;
 }
 .wrapper .main .pricing .container .pricing-list .pricing-item .price {
-  font-size: 5.6rem;
+  font-size: 3.6rem;
   font-weight: 400;
   line-height: 1.4;
   color: #333333;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1200px) {
   .wrapper .main .pricing .container .pricing-list .pricing-item .price {
-    font-size: 4.6rem;
+    font-size: 5.6rem;
   }
 }
 .wrapper .main .pricing .container .pricing-list .pricing-item .unit {
@@ -1158,6 +1299,10 @@ select {
   text-align: left;
 }
 .wrapper .main .pricing .container .pricing-list .pricing-item ul li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.4;
@@ -1170,6 +1315,10 @@ select {
   line-height: 1.4;
   color: #ff7a59;
   margin-right: 1rem;
+}
+.wrapper .main .pricing .container .pricing-list .pricing-item:nth-child(2) .btn-get-started {
+  color: #ffffff;
+  background-color: #008060;
 }
 .wrapper .main .contact {
   padding: 6rem 0;
