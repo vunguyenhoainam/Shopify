@@ -67,6 +67,15 @@ select {
   }
 }
 
+.down-line-1 {
+  @include mq_min_768 {
+    display: none;
+  }
+  @include mq_min_1024 {
+    display: block;
+  }
+}
+
 .fix-header {
   animation: header-active 1s;
 }

@@ -48,6 +48,7 @@ var RUN = {
     );
     $(".dropdown-title").click(function (e) {
       e.preventDefault();
+      console.log($(".dropdown-title"));
       if ($(this).hasClass("dropdown-active")) {
         $(this).toggleClass("dropdown-active");
         $(this).next(".dropdown-content").slideToggle();
@@ -81,12 +82,17 @@ var RUN = {
       margin: 10,
       nav: false,
       dots: true,
+      autoplay: true,
+      autoplayTimeout: 5000,
       responsive: {
         0: {
           items: 1,
         },
         1024: {
-          items: 1,
+          items: 2,
+        },
+        1200: {
+          items: 3,
         },
       },
     });
